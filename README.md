@@ -1,15 +1,11 @@
-# Basic Sample Hardhat Project
+# Arbie
+## Swap Relay Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+1. This contract is designed to relay arbitrage trades between UniswapV2 and Sushiswap from a MM Snap.
+2. The deployment script will do the following:
+    - mint token A and token B to the deployer address
+    - create token A & token B pairs on UniswapV2 and Sushiswap
+    - deploy the relay contract
+3. Steps to deploy these contracts on your own:
+    - Add an .env file locally and update it to include a MNEMONIC field.
+    - Run `yarn hardhat run --network rinkeby scripts/deploy.js`
