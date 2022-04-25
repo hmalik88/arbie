@@ -10,24 +10,11 @@ async function main() {
     "MockToken"
   );
   const tokenA = await TokenFactory.deploy('TOKEN-A', 'TKA');
-  const tokenB = await TokenFactory.deploy('TOKEN-A', 'TKA');
+  const tokenB = await TokenFactory.deploy('TOKEN-B', 'TKB');
   await tokenA.deployed();
   await tokenB.deployed();
   console.log(`Token A address: ${tokenA.address}`);
   console.log(`Token B address: ${tokenB.address}`);
-
-  console.log("Waiting to verify...");
-  await new Promise((r) => setTimeout(r, 60000));
-
-  console.log("Verifying...");
-  await run("verify:verify", {
-    address: tokenA.address,
-    constructorArguments: ['TOKEN-A', 'TKA'],
-  });
-  await run("verify:verify", {
-    address: tokenB.address,
-    constructorArguments: ['TOKEN-B', 'TKB'],
-  });
 }
 
 main()
